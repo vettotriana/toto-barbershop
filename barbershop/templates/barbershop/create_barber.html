@@ -1,0 +1,15 @@
+{% extends "barbershop/base.html" %} <!-- Hereda de la plantilla base de la aplicación barbershop -->
+
+{% block content %} <!-- Inicia el bloque de contenido que será inyectado en la plantilla base -->
+<article class="media content-section"> <!-- Define la sección de contenido como un artículo -->
+  <div class="media-body"> <!-- Contenedor para el cuerpo del artículo -->
+    <form action="" method="POST"> <!-- Inicio del formulario, sin acción específica para que se envíe a la URL actual -->
+      {% csrf_token %} <!-- Token CSRF para proteger contra ataques de falsificación de solicitud en sitios cruzados -->
+      {{ form.as_p }} <!-- Muestra el formulario como párrafos -->
+    <input class="btn btn-success" type="Submit" value="Reserva al barbero / Peluquero"> <!-- Botón para enviar el formulario -->
+    {% for message in messages %} <!-- Bucle para iterar a través de los mensajes y mostrarlos -->
+      <p id="messages">{{ message }}</p> <!-- Muestra cada mensaje -->
+    {% endfor %}
+   </div>
+</article>
+{% endblock content %} <!-- Fin del bloque de contenido -->

@@ -1,0 +1,21 @@
+{% extends "barbershop/base.html" %}
+
+{% block content %}
+        <!-- Sección de contenido para un barbero específico -->
+        <article class="media content-section">
+          <div class="media-body">
+            <!-- Metadatos del barbero, como área y servicio -->
+            <div class="article-metadata">
+              <!-- Área de servicio del barbero -->
+              <a class="mr-2" href="#">{{ barber.area }}</a>
+              <!-- Servicio ofrecido -->
+              <small class="text-muted">{{ barber.service }}</small>
+            </div>
+            <!-- Nombre de la barbería -->
+            <h2><a class="article-title" href="#">{{ barber.Barbershopname }}</a></h2>
+            <!-- Teléfono de contacto -->
+            <p class="article-content">{{ barber.phone }}</p>
+          </div>
+        </article>
+{% endblock content %}
+

@@ -1,0 +1,12 @@
+{% extends "barbershop/base.html" %} <!-- Extiende de la plantilla base de barbershop para mantener un diseño consistente -->
+
+{% block content %} <!-- Inicia el bloque de contenido específico para esta página -->
+<article class="media content-section"> <!-- Define una sección de contenido con estilo de artículo -->
+  <div class="media-body"> <!-- Contenedor para el cuerpo del artículo -->
+    <form action="" method="POST"> <!-- Formulario sin acción específica, se enviará a la misma URL -->
+      {% csrf_token %} <!-- Token CSRF para proteger contra la falsificación de solicitud en sitios cruzados -->
+      {{ form.as_p }} <!-- Muestra el formulario como párrafos para mejorar la legibilidad -->
+    <input class="btn btn-warning" type="Submit" value="Reservar Barbero / Peluquero"> <!-- Botón para enviar el formulario con estilo de advertencia -->
+   </div>
+</article>
+{% endblock content %} <!-- Termina el bloque de contenido -->

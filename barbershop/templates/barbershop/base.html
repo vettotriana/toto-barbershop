@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos requeridos -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" type="text/css" href="{% static 'barbershop/main.css' %}">
+
+    <!-- Título dinámico -->
+    {% if title %}
+        <title>Bienvenido a {{ title }}</title>
+    {% else %}
+        <title>toto-barber</title>
+    {% endif %}
+</head>
+<style>
+  body {
+    background-image: url("{% static 'barbershop/barberProf.jpg' %}");
+    background-size: cover;
+  }
+</style>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'barbershop-home' %}">inicio</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Navegación de palanca">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{% url 'bookings' %}">Mis Reservas</a>
+              <a class="nav-item nav-link" href="{% url 'create_book' %}">Reservar Barbero</a>
+              <a class="nav-item nav-link" href="{% url 'create_barber' %}">Crear Barbero</a>
+            </div>
+            <!-- Lado derecho de la barra de navegación -->
+            <div class="navbar-nav">
+              <!-- Menú desplegable -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Cuenta
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
+                  <a class="dropdown-item" href="#">Cambiar contraseña</a>
+                  <a class="dropdown-item" href="{% url 'register' %}">Registrarse como nuevo usuario</a>
+                </div>
+              </li>
+              <a class="nav-item nav-link" href="/">Conectado como {{request.user}}</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+            {% endfor %}
+          {% endif %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript opcional -->
+    <!-- jQuery primero, luego Popper.js, luego Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+

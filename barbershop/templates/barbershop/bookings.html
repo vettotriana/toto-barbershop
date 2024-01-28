@@ -1,0 +1,23 @@
+{% extends "barbershop/base.html" %} <!-- Extiende de la plantilla base para mantener la consistencia del diseño -->
+{% block content %} <!-- Inicia el bloque de contenido específico para esta página -->
+<div class="container">
+  <table class="table table-dark table-hover"> <!-- Crea una tabla con estilo oscuro y hover de Bootstrap -->
+    <thead> <!-- Cabecera de la tabla -->
+      <tr> <!-- Fila de cabecera con títulos de columnas -->
+        <th></th> <!-- Columna vacía para alineación o diseño futuro -->
+        <th>Barberia - toto</th> <!-- Título de columna para el nombre de la barbería -->
+        <th>Hora Reservada</th> <!-- Título de columna para mostrar la hora reservada -->
+        <th>Servicio </th> <!-- Título de columna para el servicio reservado -->
+      </tr>
+    </thead>
+    <tbody>
+        <tr> <!-- Fila de datos que muestra la reserva específica del usuario -->
+        <td>Tu reservaste:</td> <!-- Celda indicando la acción de reserva por parte del usuario -->
+        <td>{{Bookings.barbershop}}</td> <!-- Muestra el nombre de la barbería reservada -->
+        <td>{{Bookings.time}}</td> <!-- Muestra el tiempo de la reserva -->
+        <td>{{Bookings.status}}</td> <!-- Muestra el estado o el servicio reservado -->
+    </tbody>
+  </table>
+</div>
+{% endblock content %} <!-- Fin del bloque de contenido -->
+

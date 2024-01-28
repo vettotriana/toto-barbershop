@@ -1,0 +1,18 @@
+{% extends "barbershop/base.html" %} <!-- Hereda la estructura base de la aplicación -->
+{% block content %} <!-- Inicio del bloque de contenido específico para esta página -->
+    {% for i in barbershops %} <!-- Bucle para iterar sobre cada barbería en 'barbershops' -->
+        <article class="media content-section"> <!-- Contenedor del artículo para cada barbería -->
+          <div class="media-body"> <!-- Cuerpo del artículo -->
+            <div class="article-metadata"> <!-- Metadatos de la barbería (área y teléfono) -->
+              <a class="mr-2" href="#">{{ i.area }}</a> <!-- Área de la barbería -->
+              <small class="text-muted">{{ i.phone }}</small> <!-- Teléfono de la barbería -->
+            </div>
+            <h2><a class="article-title" href="#">{{ i.Barbershopname }}</a></h2> <!-- Nombre de la barbería -->
+            <p class="article-content">{{ i.service }}</p> <!-- Servicios ofrecidos por la barbería -->
+            <!-- Botones para reservar y publicar una reseña -->
+            <a href="{% url 'create_book' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Reserva Ahora</a>
+            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">que te parecio?</a>
+          </div>
+        </article>
+    {% endfor %} <!-- Fin del bucle -->
+{% endblock content %} <!-- Fin del bloque de contenido -->
